@@ -12,20 +12,50 @@
     integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
     crossorigin="anonymous"
     referrerpolicy="no-referrer" />
+
+
+    <script
+    type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script type="text/javascript">
+    (function () {
+      // https://dashboard.emailjs.com/admin/account
+      emailjs.init("w9ySDxWM-Tf3M1UAT");
+    })();
+  </script>
+  <script type="text/javascript">
+    window.onload = function () {
+      document
+        .getElementById("contact-form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          emailjs.sendForm("service_r6ebwfl", "template_9np62vi", this).then(
+            function () {
+              console.log("SUCCESS!");
+            },
+            function (error) {
+              console.log("FAILED...", error);
+            }
+          );
+        });
+    };
+  </script>
   </head>
   <body>
     <div class="container">
       <header class="nav">
         <h4 class="logo">Pranav</h4>
         <nav>
-          <a href="/">Home</a>
-          <a href="/">About</a>
-          <a href="/">Skills</a>
-          <a href="/">Contact</a>
+          <a href="#Home">Home</a>
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#myproject">My Project</a>
+          <a href="#contact">Contact</a>
           <button class="chat">Lets chat</button>
         </nav>
       </div>
-      <div class="home">
+      <div class="home" id="Home">
         <div class="content">
           <div class="name">
             <h3>Hello, I am</h3>
@@ -34,22 +64,23 @@
           </div>
         </div>
         <div class="profile-pic">
-          <img src="./b96d764d91fc70d9ee2643ae8bce1ffa.webp" class="image" />
+          <img src="./photo4.jpg" class="image" />
         </div>
         <div class="social-media">
-         <a href="https://github.com/pranavdate8788"> <i class="fa-brands fa-square-github socialmedia-icons"></i></a>
-         <a href=""></a> <i class="fa-brands fa-instagram socialmedia-icons"></i></a>
-         <a href="pranavdate908@gmail.com"></a> <i class="fa-regular fa-envelope socialmedia-icons"></i></a>
-         <a href="https://www.linkedin.com/in/pranav-date-9b4846206/"></a> <i class="fa-brands fa-linkedin socialmedia-icons"></i></a>
+         <a href="https://github.com/pranavdate8788" target="_blank"> 
+          <i class="fa-brands fa-square-github socialmedia-icons"></i></a>
+         <a href="https://www.instagram.com/pranavdate_8788" target="_blank"> <i class="fa-brands fa-instagram socialmedia-icons"></i></a>
+         <a href="mailto:pranavdate908@gmail.com"><i class="fa-regular fa-envelope socialmedia-icons"></i></a>
+         <a href="https://www.linkedin.com/in/pranav-date-9b4846206/" target="_blank"> <i class="fa-brands fa-linkedin socialmedia-icons"></i></a>
 
 
 
         </div>
       </div>
 
-      <div class="details">
+      <div class="details" id="about">
        <div class="photo-field">
-<img src="./b96d764d91fc70d9ee2643ae8bce1ffa.webp" alt="" class="photo">
+<img src="./photo.jpg" alt="" class="photo">
 
        </div>
        <div class="about-field">
@@ -61,7 +92,7 @@
               <button class="cv-button">Download cv</button>
        </div>
       </div>
-      <div class="skill-container">
+      <div class="skill-container" id="skills">
         <div class="skill-heading">
         <h1>My skills & Achievements</h1>
         <p>Hi Friends, my name is shivaji rao patil from Hyderabad.</p>
@@ -111,7 +142,7 @@
 
       </div>
     </div>
-    <div class="myproject-container">
+    <div class="myproject-container" id="myproject">
       <div class="project-heading">
         <h1>My Project</h1> 
       <p>Hi Friends, my name is shivaji rao patil from Hyderabad.</p>
@@ -169,7 +200,7 @@
         </div>
 
     </div>
-    <div class="contact-container">
+    <div class="contact-container" id="contact">
       <div class="contact-heading">
         <h1>Contact Me</h1> 
       <p>Hi Friends, my name is shivaji rao patil from Hyderabad.</p>
@@ -203,19 +234,23 @@
         </div>
          </div>
 <div class="input-right">
-       <div class="name-field">
-<input class="first-last" type="text" placeholder=" first name">
-<input class="first-last" type="text" placeholder=" last name">
+  <form id="contact-form" >
+       <div  class="name-field">
+<input  class="first-last" name="user_name" type="text" placeholder=" full name">
+<input class="first-last" name="contact_number" type="text" placeholder="contact no">
        </div>
        <div class="input-message">
-       <input type="email" placeholder="email">
-       <input type="text" placeholder="enter your message">
+       <input type="email" placeholder="email" name="user_email">
+       <input type="text" placeholder="enter your message" name="message">
       </div>
-      <button class="send-message">Send Message</button>
+      <button type="submit" value="send" class="send-message">Send Message</button>
+    </form>
 </div>
+
+ 
       </div>
      
     </div>
-    
+    <script src="./script.js"></script>
   </body>
 </html>
